@@ -1,5 +1,5 @@
 # LAB-4: Backdoor-Attacks
-This lab coursework is done as part of the course 'EL-GY-9163: Machine Learning for Cyber-security'
+This lab coursework is done as part of the course 'EL-GY-9163: Machine Learning for Cyber-security' offered in Fall 2023
 
 ## Data
    1. Download the validation and test datasets from [here](https://drive.google.com/drive/folders/1Rs68uH8Xqa4j6UxG53wzD0uyI8347dSq?usp=sharing) and store them under `data/` directory.
