@@ -75,7 +75,7 @@ The primary objective of this project was to refine a machine learning model thr
 
 After pruning the model, we can use the clean validation data set and test it on the pruned model. The 'Classification Accuracy' and 'Attack Success Rate' upon using the validation dataset are as given in the figure below:
 
-![Figure 1](Images/Accuracy_ASR_for_Validation_data.png)
+![Figure 1](https://github.com/m0hith/Backdoor-Attacks/blob/main/Images/Accuracy_ASR_for_Validation_data.png)
 
 The assessment indicates that the prune defense strategy hasn't been notably successful in reducing the attack success rate. While the rate of successful attacks might not be excessively high, the defense method significantly compromises the accuracy of the model. 
 
@@ -83,10 +83,10 @@ The attack might be resistant to the prune defense method, which means the defen
 
 In summary, the prune defense strategy appears ineffective in significantly reducing the success rate of attacks against the model. The compromise in model accuracy due to this defense, coupled with the suspicion that the attack method might be immune to this defense technique or the model retains susceptibility from the training data, raises concerns about its overall security.
 
-Comparision of the performance of the repaired model is shown in the figure given below:
+Comparison of the performance of the repaired model is shown in the figure given below:
 
-![Figure 2](Images/Repaired_model_performance.png)
+![Figure 2](https://github.com/m0hith/Backdoor-Attacks/blob/main/Images/Repaired_model_performance.png)
 
-Comparision of the performance of the GoodNet model is shown in the figure given below:
+Comparison of the performance of the GoodNet model is shown in the figure given below:
 
-![Figure 3](Images/goodnet_model_performance.png)
+![Figure 3](https://github.com/m0hith/Backdoor-Attacks/blob/main/Images/goodnet_model_performance.png)
