@@ -7,7 +7,7 @@ This lab coursework is done as part of the course 'EL-GY-9163: Machine Learning 
 3. [Procedure](#procedure)
 4. [Evaluating the Backdoored Model](#eval)
 5. [Notes on code execution](#code_exec)
-6. [Observations and submissions](#submission)
+6. [Observations](#obv)
 
 ### Overview <a name='overview'></a>
 You must do the project individually. In this HW you will design a backdoor detector for BadNets trained on the YouTube Face dataset using the pruning defense discussed in class. Your detector will take as input:
@@ -70,6 +70,8 @@ The primary objective of this project was to refine a machine learning model thr
 - Please use only clean validation data (valid.h5) to design the pruning defense. And use test data (test.h5 and bd_test.h5) to evaluate the models.
 
 ---
+
+### Observations <a name='obv'></a>
 
 After pruning the model, we can use the clean validation data set and test it on the pruned model. The 'Classification Accuracy' and 'Attack Success Rate' upon using the validation dataset are as given in the figure below:
 
