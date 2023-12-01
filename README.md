@@ -1,4 +1,10 @@
 # LAB-4: Backdoor-Attacks
+
+## Laboratory Report
+
+Name: Mohith Jarapala \
+NetID: mpj8687
+
 This lab coursework is done as part of the course 'EL-GY-9163: Machine Learning for Cyber-security' offered in Fall 2023
 
 ## Table of Contents
