@@ -24,15 +24,16 @@ What you must output is *G* a “repaired” BadNet. G has *N+1* classes and giv
 1. Output the correct class if the test input is clean. The correct class will be in *[1, N]*.
 2. Output class *N+1* if the input is backdoored.
 
-You will design *G* using the pruning defense we discussed in class. That is, you will prune the last convolution layer of BadNet $B$ (the layer just before the FC layers) by removing one channel at a time from that layer. Channels should be removed in increasing order of average activation values over the entire validation set. Every time you prune a channel, you will  measure the new validation accuracy of the newly pruned BadNet. You will stop pruning once the validation accuracy drops at least X% below the original accuracy. This will be your new network $B'$. Now, your GoodNet *G* works as follows. For each test input, you will run it through both $B$ and $B'$. If the classification outputs are the same, i.e., class i, you will output class i. If they differ you will output *N+1*.
+You will design *G* using the pruning defense we discussed in class. You will prune the last convolution layer of BadNet $B$ (the layer just before the FC layers) by removing one channel at a time from that layer. Channels should be removed in increasing order of average activation values over the entire validation set. Every time you prune a channel, you will  measure the new validation accuracy of the newly pruned BadNet. You will stop pruning once the validation accuracy drops at least X% below the original accuracy. This will be your new network $B'$. Now, your GoodNet *G* works as follows. For each test input, you will run it through both $B$ and $B'$. If the classification outputs are the same, i.e., class i, you will output class i. If they differ you will output *N+1*.
 
 Evaluate this defense on:
 1. A BadNet, *B1*, (“sunglasses backdoor”) on YouTube Face for which we have already told you what the backdoor looks like. That is, we give you the validation data and test data with examples of clean and backdoored inputs.
 
 ### Data <a name='data'></a>
-   1. Download the validation and test datasets from [here](https://drive.google.com/drive/folders/1Rs68uH8Xqa4j6UxG53wzD0uyI8347dSq?usp=sharing) and store them under `lab3/data/` directory.
-   2. The dataset contains images from the YouTube Aligned Face Dataset. We retrieved 1283 individuals and split them into validation and test datasets.
-   3. bd_valid.h5 and bd_test.h5 contains validation and test images with sunglasses trigger respectively, that activates the backdoor for bd_net.h5.
+   1. Download the validation and test datasets from [here](https://github.com/csaw-hackml/CSAW-HackML-2020/tree/master) and store them under the `lab3/data/` directory.
+   2. The data files that are supposed to go in the path mentioned above can be downloaded from the following [link](https://drive.google.com/drive/folders/1Rs68uH8Xqa4j6UxG53wzD0uyI8347dSq)
+   3. The dataset contains images from the YouTube Aligned Face Dataset. We retrieved 1283 individuals and split them into validation and test datasets.
+   4. bd_valid.h5 and bd_test.h5 contains validation and test images with sunglasses trigger respectively, that activates the backdoor for bd_net.h5.
 
 ```bash
 ├── data 
@@ -51,13 +52,13 @@ Evaluate this defense on:
 
 ### Procedure <a name='procedure'></a>
 
-The primary objective of this project was to refine a machine learning model through a series of steps including layer pruning, accuracy-based model saving, vulnerability assessment, and the creation of an optimized composite model.
+The primary objective of this project was to refine a machine learning model through a series of steps including layer pruning, accuracy-based model saving, vulnerability assessment, and creating an optimized composite model.
 
 1. **Layer Pruning and Model Saving:** Our approach involved pruning the `conv_3` layer based on the average activation from the last pooling operation across the validation dataset. We implemented a strategy to save models at specific accuracy drop thresholds of 2%, 4%, and 10%. The models were named `model_X=2.h5`, `model_X=4.h5`, and `model_X=10.h5`, respectively, signifying the accuracy drop percentage.
 
 2. **Vulnerability Assessment:** Notably, we assessed the attack success rate when the model's accuracy dropped by at least 30%. This metric was observed at 6.954187234779596%, indicating a vulnerability threshold.
 
-3. **Model Integration (GoodNet Design):** To enhance the model's performance, we pursued a strategy to combine two models: the flawed or compromised "BadNet" and a refined model post-repair. This process aimed to create a superior composite model, referred to as "GoodNet."
+3. **Model Integration (GoodNet Design):** To enhance the model's performance, we pursued a strategy to combine two models: the flawed or compromised "BadNet" and a refined model post-repair. This process aimed to create a superior composite model referred to as "GoodNet."
 
 4. **Implementation Details:** The entire program code and implementation steps are detailed in the `MLSec_Lab4_mpj8687.ipynb` file. This file encapsulates the codebase, encompassing the procedures for model creation, pruning, evaluation, vulnerability assessment, and the integration of models to form GoodNet.
 
