@@ -1,4 +1,4 @@
-# LAB-4: Backdoor-Attacks
+# LAB-4: Backdoor Attacks
 
 ## Laboratory Report
 
