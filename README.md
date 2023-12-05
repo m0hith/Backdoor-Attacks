@@ -30,10 +30,9 @@ Evaluate this defense on:
 1. A BadNet, *B1*, (“sunglasses backdoor”) on YouTube Face for which we have already told you what the backdoor looks like. That is, we give you the validation data and test data with examples of clean and backdoored inputs.
 
 ### Data <a name='data'></a>
-   1. Download the validation and test datasets from [here](https://github.com/csaw-hackml/CSAW-HackML-2020/tree/master) and store them under the `lab3/data/` directory.
-   2. The data files that are supposed to go in the path mentioned above can be downloaded from the following [link](https://drive.google.com/drive/folders/1Rs68uH8Xqa4j6UxG53wzD0uyI8347dSq)
-   3. The dataset contains images from the YouTube Aligned Face Dataset. We retrieved 1283 individuals and split them into validation and test datasets.
-   4. bd_valid.h5 and bd_test.h5 contains validation and test images with sunglasses trigger respectively, that activates the backdoor for bd_net.h5.
+   1. Download the validation and test datasets from [here](https://drive.google.com/drive/folders/1Rs68uH8Xqa4j6UxG53wzD0uyI8347dSq) and store them under the `lab3/data/` directory present in this [repository](https://github.com/csaw-hackml/CSAW-HackML-2020/tree/master). 
+   2. The dataset contains images from the YouTube Aligned Face Dataset. We retrieved 1283 individuals and split them into validation and test datasets.
+   3. bd_valid.h5 and bd_test.h5 contains validation and test images with sunglasses trigger respectively, that activates the backdoor for bd_net.h5.
 
 ```bash
 ├── data 
@@ -54,7 +53,7 @@ Evaluate this defense on:
 
 The primary objective of this project was to refine a machine learning model through a series of steps including layer pruning, accuracy-based model saving, vulnerability assessment, and creating an optimized composite model.
 
-1. **Layer Pruning and Model Saving:** Our approach involved pruning the `conv_3` layer based on the average activation from the last pooling operation across the validation dataset. We implemented a strategy to save models at specific accuracy drop thresholds of 2%, 4%, and 10%. The models were named `model_X=2.h5`, `model_X=4.h5`, and `model_X=10.h5`, respectively, signifying the accuracy drop percentage.
+1. **Layer Pruning and Model Saving:** Our approach involved pruning the `conv_3` layer based on the average activation from the last pooling operation across the validation dataset. We implemented a strategy to save models at specific accuracy drop thresholds of 2%, 4%, and 10%. The models were named `model_vx2.h5`, `model_vx4.h5`, and `model_vx10.h5`, respectively, signifying the accuracy drop percentage.
 
 2. **Vulnerability Assessment:** Notably, we assessed the attack success rate when the model's accuracy dropped by at least 30%. This metric was observed at 6.954187234779596%, indicating a vulnerability threshold.
 
@@ -72,7 +71,7 @@ The primary objective of this project was to refine a machine learning model thr
       Attack Success Rate: 100 %
 
 ### Notes on code execution <a name='code_exec'></a>
-- This code is executed locally due to resource constraints in Google Colab
+- This code is executed locally due to resource constraints in the Google Colab free version.
 - The links to download the dataset and the corresponding files required for code execution are mentioned in the Data(#data) section above. Make sure to verify and update the path addresses of clean data, poisoned data, and models, according to the data stored in your system before executing the code.
 - Please use only clean validation data (valid.h5) to design the pruning defense. And use test data (test.h5 and bd_test.h5) to evaluate the models.
 
